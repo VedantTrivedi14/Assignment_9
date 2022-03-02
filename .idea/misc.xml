@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.127" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.127" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/drawable/ic_icons8_color_switch_96.xml" value="0.127" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/drawable/ic_icons8_color_wheel_30.xml" value="0.127" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/drawable/ic_icons8_folder_50__1_.xml" value="0.127" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/drawable/ic_icons8_folder_settings_50.xml" value="0.127" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/layout/activity_settings.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/layout/activity_single_img.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/layout/fragment_folder_setting.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/layout/fragment_img.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/layout/fragment_settings.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/layout/row_img.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/menu/setting_menu.xml" value="0.4" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/xml/preferances_color_setting.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/xml/preferances_folder_setting.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tatvasoft_Android/Assignments/Assignment_9/app/src/main/res/xml/preferances_setting.xml" value="0.22826086956521738" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

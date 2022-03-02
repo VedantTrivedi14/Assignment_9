@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.SingleImgActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/previousFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:clickable="true"
+        android:focusable="true"
+        app:elevation="@dimen/elevation"
+        app:backgroundTint="@color/white"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="start|center"
+        android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+        android:contentDescription="@string/previous_button_description" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/nextFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:clickable="true"
+        android:focusable="true"
+        app:elevation="@dimen/elevation"
+        app:fabSize="mini"
+        app:backgroundTint="@color/white"
+        android:layout_gravity="center|end"
+        android:src="@drawable/ic_baseline_navigate_next_24"
+        android:contentDescription="@string/next_button_description" />
+
+    <ImageView
+        android:id="@+id/fullImageViewId"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:layout_margin="@dimen/margin2"
+        android:contentDescription="@string/full_image_description" />
+
+</FrameLayout>

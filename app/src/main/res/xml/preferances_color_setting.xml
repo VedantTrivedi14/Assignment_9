@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/colour">
+
+        <Preference
+            android:key="STATUS_COLOUR"
+            android:title="@string/statusBar"
+            android:summary="@string/summery_status" />
+
+        <Preference
+            android:key="ACTION_COLOUR"
+            android:title="@string/actionBar"
+            android:summary="@string/summery_action" />
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>
+<!--
+
+-->

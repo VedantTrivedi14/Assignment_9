@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Assignment_9</string>
+    <string name="settings">Settings</string>
+
+    <string name="colour">Colour</string>
+    <string name="statusBar">Set colour for status bar </string>
+    <string name="summery_status">Please select status bar colour form colour palette</string>
+    <string name="actionBar">Set colour for action bar </string>
+    <string name="summery_action">Please select action bar colour form colour palette</string>
+    <string name="toast_color_select">onColorSelected: 0x</string>
+    <string name="title">Select colour</string>
+    <string name="ok">OK</string>
+    <string name="Cancel">Cancel</string>
+    <string name="hash">#</string>
+    <string name="image_form_storage">Image form storage</string>
+    <string name="set_folder">Set folder</string>
+
+    <string-array name="FOLDER_VALUE">
+        <item>Android</item>
+        <item>DCIM</item>
+        <item>Download</item>
+        <item>Pictures</item>
+        <item>Images</item>
+        <item>Camera</item>
+        <item>Screenshots</item>
+        <item>photos</item>
+        <item>WhatsApp</item>
+    </string-array>
+    <string-array name="entry">
+
+    </string-array>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dummy_text">Image not exist in this folder , recommended to select other folder form settings…</string>
+    <string name="loading_progressDialog">Progressbar Loading</string>
+    <string name="pleaseWait_progressDialog">Please wait while  mages are loading</string>
+    <string name="permission">Storage permission must require</string>
+    <string name="full_image_description">full image</string>
+    <string name="gallery">Gallery</string>
+    <string name="no_folder_selected">No folder selected</string>
+    <string name="images">Folder images</string>
+    <string name="previous_button_description">back</string>
+    <string name="next_button_description">next</string>
+    <string name="do_not_ask_permissiion">TO access folder images please enable storage  permission from app settings</string>
+    <string name="Necessary_permission">Necessary permission</string>
+    <string name="Storage_permission_must_require_to_access_folders">Storage permission must require to access folders</string>
+    <string name="Permission">You can access folders</string>
+    <string name="colorSettings">Color setting</string>
+    <string name="folderSettings">Folder setting</string>
+</resources>
