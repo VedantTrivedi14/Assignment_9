@@ -77,11 +77,10 @@ public class ImgFragment extends Fragment {
         setStatusColor(preferences.getString(Constants.STATUS_COLOUR, this.getResources().getString(R.color.purple_700)));
         setActionColor(preferences.getString(Constants.ACTION_COLOUR, this.getResources().getString(R.color.purple_500)));
 
-
+        binding.dummyText.setText(this.getResources().getString(R.string.dummy_text));
         folder = preferences.getString(Constants.SELECT_FOLDER, "");
 
         display();
-//        CheckUserPermission();
         mList = new ArrayList<>();
     }
 
@@ -90,48 +89,6 @@ public class ImgFragment extends Fragment {
         super.onPause();
         mList.clear();
     }
-//    final private int REQUEST_CODE_ASK_PERMISSIONS = 84;
-//    void CheckUserPermission() {
-//        if (Build.VERSION.SDK_INT >= 23) {
-//            if (ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) !=
-//                    PackageManager.PERMISSION_GRANTED) {
-//                requestPermissions(new String[]{
-//                                Manifest.permission.READ_EXTERNAL_STORAGE},
-//                        REQUEST_CODE_ASK_PERMISSIONS);
-//                return;
-//            }
-//        }
-//
-//        display();
-//
-//    }
-//
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        if (requestCode == REQUEST_CODE_ASK_PERMISSIONS) {
-//            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//
-//                display();
-//            } else if (Build.VERSION.SDK_INT >= 23 && !shouldShowRequestPermissionRationale(permissions[0])) {
-//                Toast.makeText(getContext(), getString(R.string.do_not_ask_permission), Toast.LENGTH_SHORT).show();
-//            } else {
-//                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(requireContext());
-//                alertBuilder.setCancelable(true);
-//                alertBuilder.setTitle(R.string.Necessary_permission);
-//                alertBuilder.setMessage(R.string.Storage_permission_must_require_to_access_folders);
-//                alertBuilder.setPositiveButton(R.string.ok, (dialog, which) -> {
-//                    requestPermissions(new String[]{
-//                                    Manifest.permission.READ_EXTERNAL_STORAGE},
-//                            REQUEST_CODE_ASK_PERMISSIONS);
-//                });
-//                AlertDialog alert = alertBuilder.create();
-//                alert.show();
-//            }
-//        } else {
-//            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        }
-//    }
-//
 
     private void display() {
 
@@ -183,7 +140,7 @@ public class ImgFragment extends Fragment {
                 getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.mainActivity, new FolderSettingFragment(getContext())).commit();
             }
         } else {
-            Toast.makeText(getContext(), getString(R.string.do_not_ask_permissiion), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getString(R.string.do_not_ask_permission), Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -208,9 +165,9 @@ public class ImgFragment extends Fragment {
         if (requestCode == REQUEST_CODE_ASK_PERMISSIONS) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 display();
-//                isPermission =true;
+
             } else if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M && !shouldShowRequestPermissionRationale(permissions[0])) {
-                Toast.makeText(getContext(), getString(R.string.do_not_ask_permissiion), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(R.string.do_not_ask_permission), Toast.LENGTH_SHORT).show();
             } else {
                 AlertDialog.Builder alertBuilder = new AlertDialog.Builder(requireContext());
                 alertBuilder.setCancelable(true);

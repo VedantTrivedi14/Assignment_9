@@ -31,20 +31,21 @@
     </string-array>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="dummy_text">Image not exist in this folder , recommended to select other folder form settings…</string>
+    <string name="dummy_text">No folder is selected</string>
     <string name="loading_progressDialog">Progressbar Loading</string>
     <string name="pleaseWait_progressDialog">Please wait while  mages are loading</string>
     <string name="permission">Storage permission must require</string>
     <string name="full_image_description">full image</string>
     <string name="gallery">Gallery</string>
-    <string name="no_folder_selected">No folder selected</string>
+
     <string name="images">Folder images</string>
     <string name="previous_button_description">back</string>
     <string name="next_button_description">next</string>
-    <string name="do_not_ask_permissiion">TO access folder images please enable storage  permission from app settings</string>
+    <string name="do_not_ask_permission">TO access folder images please enable storage  permission from app settings</string>
     <string name="Necessary_permission">Necessary permission</string>
     <string name="Storage_permission_must_require_to_access_folders">Storage permission must require to access folders</string>
     <string name="Permission">You can access folders</string>
     <string name="colorSettings">Color setting</string>
     <string name="folderSettings">Folder setting</string>
+    <string name="no_image"> have no images</string>
 </resources>

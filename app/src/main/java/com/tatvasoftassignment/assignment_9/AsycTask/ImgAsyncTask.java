@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.tatvasoftassignment.assignment_9.Activity.SingleImgActivity;
 import com.tatvasoftassignment.assignment_9.Adapter.ImageAdapter;
+import com.tatvasoftassignment.assignment_9.Fragment.ImgFragment;
 import com.tatvasoftassignment.assignment_9.R;
 import com.tatvasoftassignment.assignment_9.Utils.Constants;
 
@@ -70,6 +71,7 @@ public class ImgAsyncTask extends AsyncTask<File, Void, ArrayList>  implements I
 
 
 
+
     @Override
     protected void onPostExecute(ArrayList arrayList) {
         super.onPostExecute(arrayList);
@@ -77,7 +79,10 @@ public class ImgAsyncTask extends AsyncTask<File, Void, ArrayList>  implements I
         for (int j = 0; j < arrayList.size(); j++) {
             imagePathList.add(String.valueOf(arrayList.get(j)));
         }
-        binding.dummyText.setText(R.string.dummy_text);
+        StringBuilder massage = new StringBuilder();
+        massage.append(ImgFragment.folder).append(contextRef.get().getString(R.string.no_image));
+
+        binding.dummyText.setText(new StringBuilder().append(ImgFragment.folder).append(" ").append(contextRef.get().getString(R.string.no_image)));
         if (imagePathList.size() == 0) {
             binding.dummyText.setVisibility(View.VISIBLE);
         } else {
