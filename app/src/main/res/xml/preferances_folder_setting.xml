@@ -11,4 +11,3 @@
             app:useSimpleSummaryProvider="true"/>
     </PreferenceCategory>
 </PreferenceScreen>
-<!--android:selectable="false"-->

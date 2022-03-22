@@ -129,15 +129,15 @@ public class ImgFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.miColorSettings) {
-            assert getFragmentManager() != null;
-            getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.mainActivity, new ColorSettingsFragment(getContext())).commit();
+//            assert getFragmentManager() != null;
+            requireActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.mainActivity, new ColorSettingsFragment(getContext())).commit();
 
         } else if (item.getItemId() == R.id.miFolderSettings) {
             checkUserPermissions();
             if (isPermission) {
-                Log.i("isPermission", String.valueOf(isPermission));
-                assert getFragmentManager() != null;
-                getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.mainActivity, new FolderSettingFragment(getContext())).commit();
+                Log.i("isPermission", String.valueOf(true));
+//                assert getFragmentManager() != null;
+                requireActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.mainActivity, new FolderSettingFragment(getContext())).commit();
             }
         } else {
             Toast.makeText(getContext(), getString(R.string.do_not_ask_permission), Toast.LENGTH_SHORT).show();
@@ -173,11 +173,9 @@ public class ImgFragment extends Fragment {
                 alertBuilder.setCancelable(true);
                 alertBuilder.setTitle(R.string.Necessary_permission);
                 alertBuilder.setMessage(R.string.Storage_permission_must_require_to_access_folders);
-                alertBuilder.setPositiveButton(R.string.ok, (dialog, which) -> {
-                    requestPermissions(new String[]{
-                                    Manifest.permission.READ_EXTERNAL_STORAGE},
-                            REQUEST_CODE_ASK_PERMISSIONS);
-                });
+                alertBuilder.setPositiveButton(R.string.ok, (dialog, which) -> requestPermissions(new String[]{
+                                Manifest.permission.READ_EXTERNAL_STORAGE},
+                        REQUEST_CODE_ASK_PERMISSIONS));
                 AlertDialog alert = alertBuilder.create();
                 alert.show();
             }
