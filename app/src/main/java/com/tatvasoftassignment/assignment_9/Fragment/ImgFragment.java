@@ -21,6 +21,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -145,42 +148,39 @@ public class ImgFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    final private int REQUEST_CODE_ASK_PERMISSIONS = 84;
+    private final ActivityResultLauncher<String> mPermissionResult = registerForActivityResult(
+            new ActivityResultContracts.RequestPermission(),
+            new ActivityResultCallback<Boolean>() {
+                @Override
+                public void onActivityResult(Boolean result) {
+                    if (result) {
+                        display();
+                    } else {
+                        if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M && !shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                            Toast.makeText(getContext(), getString(R.string.do_not_ask_permission), Toast.LENGTH_SHORT).show();
+                        } else {
 
+                            AlertDialog.Builder alertBuilder = new AlertDialog.Builder(requireContext());
+                            alertBuilder.setCancelable(true);
+                            alertBuilder.setTitle(R.string.Necessary_permission);
+                            alertBuilder.setMessage(R.string.Storage_permission_must_require_to_access_folders);
+                            alertBuilder.setPositiveButton(R.string.ok, (dialog, which) -> mPermissionResult.launch(Manifest.permission.READ_EXTERNAL_STORAGE));
+                            AlertDialog alert = alertBuilder.create();
+                            alert.show();
+                        }
+                    }
+                }
+            });
     void checkUserPermissions() {
         if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{
-                                Manifest.permission.READ_EXTERNAL_STORAGE},
-                        REQUEST_CODE_ASK_PERMISSIONS);
+                mPermissionResult.launch(Manifest.permission.READ_EXTERNAL_STORAGE);
                 return;
             }
         }
         isPermission = true;
         display();
     }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CODE_ASK_PERMISSIONS) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                display();
-
-            } else if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M && !shouldShowRequestPermissionRationale(permissions[0])) {
-                Toast.makeText(getContext(), getString(R.string.do_not_ask_permission), Toast.LENGTH_SHORT).show();
-            } else {
-                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(requireContext());
-                alertBuilder.setCancelable(true);
-                alertBuilder.setTitle(R.string.Necessary_permission);
-                alertBuilder.setMessage(R.string.Storage_permission_must_require_to_access_folders);
-                alertBuilder.setPositiveButton(R.string.ok, (dialog, which) -> requestPermissions(new String[]{
-                                Manifest.permission.READ_EXTERNAL_STORAGE},
-                        REQUEST_CODE_ASK_PERMISSIONS));
-                AlertDialog alert = alertBuilder.create();
-                alert.show();
-            }
-        } else {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-    }
 }
+
+//original

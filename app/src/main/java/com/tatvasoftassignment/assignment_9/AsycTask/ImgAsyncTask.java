@@ -1,11 +1,11 @@
 package com.tatvasoftassignment.assignment_9.AsycTask;
 
+
 import static com.tatvasoftassignment.assignment_9.Fragment.ImgFragment.binding;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.view.View;
 
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -17,38 +17,42 @@ import com.tatvasoftassignment.assignment_9.R;
 import com.tatvasoftassignment.assignment_9.Utils.Constants;
 
 import java.io.File;
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
+public class ImgAsyncTask extends BackGroundTask  implements ImageAdapter.OnItemClickListener {
 
-public class ImgAsyncTask extends AsyncTask<File, Void, ArrayList>  implements ImageAdapter.OnItemClickListener {
 
-    private final WeakReference<Context> contextRef;
+    Context context;
     ProgressDialog progressDialog;
 
     private ArrayList imageFile;
     ImageAdapter imageAdapter;
-    List<String> imagePathList = new ArrayList<>() ;
+    List<String> imagePathList = new ArrayList<>();
     private final ArrayList<File> allImageFile = new ArrayList<>();
     static String[] imgExtension = {".jpg", ".jpeg", ".png"};
 
     public ImgAsyncTask(Context context) {
-        contextRef = new WeakReference<>(context);
+        this.context = context;
     }
+
+
+
     @Override
     protected void onPreExecute() {
-        progressDialog = new ProgressDialog(contextRef.get());
-        progressDialog.setTitle(contextRef.get().getString(R.string.loading_progressDialog));
-        progressDialog.setMessage(contextRef.get().getString(R.string.pleaseWait_progressDialog));
+        progressDialog = new ProgressDialog(context);
+        progressDialog.setTitle(context.getString(R.string.loading_progressDialog));
+        progressDialog.setMessage(context.getString(R.string.pleaseWait_progressDialog));
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
     }
 
+
+
     @Override
     protected ArrayList<File> doInBackground(File... files) {
         File[] fileList = files[0].listFiles();
-        if(fileList != null && fileList.length > 0){
+        if (fileList != null && fileList.length > 0) {
             for (File value : fileList) {
                 if (value.isDirectory()) {
                     doInBackground(value);
@@ -68,10 +72,6 @@ public class ImgAsyncTask extends AsyncTask<File, Void, ArrayList>  implements I
     }
 
 
-
-
-
-
     @Override
     protected void onPostExecute(ArrayList arrayList) {
         super.onPostExecute(arrayList);
@@ -80,16 +80,16 @@ public class ImgAsyncTask extends AsyncTask<File, Void, ArrayList>  implements I
             imagePathList.add(String.valueOf(arrayList.get(j)));
         }
         StringBuilder massage = new StringBuilder();
-        massage.append(ImgFragment.folder).append(contextRef.get().getString(R.string.no_image));
+        massage.append(ImgFragment.folder).append(context.getString(R.string.no_image));
 
-        binding.dummyText.setText(new StringBuilder().append(ImgFragment.folder).append(" ").append(contextRef.get().getString(R.string.no_image)));
+        binding.dummyText.setText(new StringBuilder().append(ImgFragment.folder).append(" ").append(context.getString(R.string.no_image)));
         if (imagePathList.size() == 0) {
             binding.dummyText.setVisibility(View.VISIBLE);
         } else {
             binding.dummyText.setVisibility(View.GONE);
             imageAdapter = new ImageAdapter(imagePathList, this);
             binding.recImg.setAdapter(imageAdapter);
-            binding.recImg.setLayoutManager(new GridLayoutManager(contextRef.get(), 3));
+            binding.recImg.setLayoutManager(new GridLayoutManager(context, 3));
         }
         progressDialog.dismiss();
 
@@ -98,10 +98,16 @@ public class ImgAsyncTask extends AsyncTask<File, Void, ArrayList>  implements I
     @Override
     public void onClick(int position) {
 
-        Intent intent=new Intent(contextRef.get(), SingleImgActivity.class);
-        intent.putExtra(Constants.IMAGE,String.valueOf(imageFile.get(position)));
-        intent.putExtra(Constants.IMAGE_POSITION,position);
-        intent.putExtra(Constants.IMAGE_PATH_LIST,imageFile);
-        contextRef.get().startActivity(intent);
+        Intent intent = new Intent(context, SingleImgActivity.class);
+        intent.putExtra(Constants.IMAGE, String.valueOf(imageFile.get(position)));
+        intent.putExtra(Constants.IMAGE_POSITION, position);
+        intent.putExtra(Constants.IMAGE_PATH_LIST, imageFile);
+        context.startActivity(intent);
+    }
+
+    @Override
+    public void cancel() {
+        super.cancel();
     }
 }
+
